@@ -29,10 +29,12 @@ storiesOf("Button", module)
   }) // 2
   .add("Unselected", () => <DayListItem name="Monday" spots={5} />) // 3
   .add("Selected", () => <DayListItem name="Monday" spots={5} selected />) 
-  .add("Full", () => <DayListItem name="Monday" spots={0} />)
+  .add("Full", () => <DayListItem name="Monday" spots={0} />) // add no spots remaining 
   .add("Clickable", () => (
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> // 4
   ));
+
+
 // 1 Initiates Storybook and registers our DayListItem component
 // 2.Provides the default background color for our component
 // 3. To define our stories, we call add() once for each of our test states to generate a story
