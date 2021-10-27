@@ -2,7 +2,7 @@ import React from "react";
 import "components/Application.scss";
 // import Button from "./Button";
 import DayList from "./DayList";
-
+import { useState } from 'react';
 
 const days = [
   {
@@ -21,7 +21,8 @@ const days = [
     spots: 0,
   },
 ];
-export default function Application(props) {
+
+ function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
@@ -50,3 +51,5 @@ export default function Application(props) {
     </main>
   );
 }
+
+export default Application;
