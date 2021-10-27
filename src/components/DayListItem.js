@@ -3,11 +3,6 @@ import "components/DayListItem.scss";
 import classNames from "classnames";
 
 function DayListItem(props) {
-  // function spotsFormatter(spots){
-  //   return (
-  //     {spots === 0 ? "zero" : spots === 1 ? "one" : `${spots} this `}
-  //   );
-  // }
 
   const dayClass = classNames("day-list__item", {
     "day-list__item--selected": props.selected === true,
@@ -22,7 +17,6 @@ function DayListItem(props) {
     >
       <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">
-        {/* {spotsFormatter(props.spots)} */}
         {props.spots === 0 ? "no spots remaining" : props.spots === 1 ? "1 spot remaining" : `${props.spots} spots remaining`}
       </h3>
     </li>
@@ -31,3 +25,14 @@ function DayListItem(props) {
 
 export default DayListItem
 
+
+  // function formatSpots(spots){
+  //   return (
+    // if (props.spots === 0){
+    //   return "no spots remaining"
+    // }
+  //   {props.spots === 0 ? "no spots remaining" : props.spots === 1 ? "1 spot remaining" : `${props.spots} spots remaining`}
+  //   );
+  // }
+
+  // line 20 = {formatSpots(props.spots)}
