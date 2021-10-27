@@ -22,9 +22,7 @@ function DayListItem(props) {
     </li>
   );
 }
-
 export default DayListItem
-
 
   // function formatSpots(spots){
   //   return (
