@@ -2,6 +2,7 @@ import React from 'react'
 import "components/DayListItem.scss";
 import classNames from "classnames";
 
+
 function DayListItem(props) {
 
   // function formatSpots (spots) {
@@ -32,7 +33,7 @@ function DayListItem(props) {
     >
       <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">
-        {formatSpots(props.spots)}
+        {/* {formatSpots(props.spots)} */}
         {props.spots === 0 ? "no spots remaining" : props.spots === 1 ? "1 spot remaining" : `${props.spots} spots remaining`}
       </h3>
     </li>
