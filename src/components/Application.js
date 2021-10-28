@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "components/Application.scss";
-// import Button from "./Button";
 import DayList from "./DayList";
-import { useState } from 'react';
 
 const days = [
   {
@@ -23,9 +21,8 @@ const days = [
 ];
 
  function Application(props) {
-
   const [day, setDay] = useState('Monday');
-
+  console.log(day);
 
   return (
     <main className="layout">
