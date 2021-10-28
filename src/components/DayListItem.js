@@ -27,7 +27,7 @@ function DayListItem(props) {
   return (
     <li
       className={dayClass}
-      // onClick= {props.setDay(props.name)}
+      onClick= {() => props.setDay(props.name)}
       selected={props.selected}
       full={props.spots}
     >
