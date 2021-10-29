@@ -82,11 +82,7 @@ storiesOf("DayList", module)
   ));
 
 
-const interviewer = {
-  id: 1,
-  name: "Sylvia Palmer",
-  avatar: "https://i.imgur.com/LpaY82x.png"
-};
+
 
 storiesOf("InterviewerListItem", module)
   .addParameters({
@@ -117,7 +113,11 @@ storiesOf("InterviewerListItem", module)
       setInterviewer={() => action("setInterviewer")(interviewer.id)}
     />
   ));
-
+  const interviewer = {
+    id: 1,
+    name: "Sylvia Palmer",
+    avatar: "https://i.imgur.com/LpaY82x.png"
+  };
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -164,6 +164,8 @@ storiesOf("Appointment", module)
   //SHOW
   .add("Show", () => (
     <Show
+      student="Colin"
+      interviewer={interviewers[0]}
       onEdit={action("onEdit")}
       onDelete={action("onDelete")}
     />
@@ -186,18 +188,18 @@ storiesOf("Appointment", module)
     />
   ))
   //FORM / CREATE / EDIT
-  .add("Form", () => (
-    <Create
-      student="Colin"
-      interviewer={3}
+  .add("Create", () => (
+    <Form
       interviewers={interviewers}
       onSave={action("onSave")}
       onCancel={action("onCancel")}
     />
   ))
-  
-  .add("Form", () => (
-    <Edit
+
+  .add("Edit", () => (
+    <Form
+      student="Colin"
+      interviewer={3}
       interviewers={interviewers}
       onSave={action("onSave")}
       onCancel={action("onCancel")}

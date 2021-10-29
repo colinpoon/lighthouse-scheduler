@@ -3,7 +3,6 @@ import InterviewerList from 'components/InterviewerList'
 import Button from 'components/Button'
 
 function Form(props) {
-
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
@@ -13,19 +12,18 @@ function Form(props) {
       <section className="appointment__card-left">
         <form autoComplete="off">
           <input
-          onChange
             className="appointment__create-input text--semi-bold"
             name="name"
             type="text"
             placeholder="Enter Student Name"
-          /*
-            This must be a controlled component
-            your code goes here
-          */
+            value={student}
+            onChange={(event) => setStudent(event.trigger.value)}
           />
         </form>
         <InterviewerList
-        /* your code goes here */
+          interviewrs={props.interviewer}
+          value={interviewer}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
