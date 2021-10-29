@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
-import "/src/components/Appointment/styles.scss";
-import Header from "/src/components/Appointment/Header.js";
-import Empty from "/src/components/Appointment/Empty.js";
-import Show from "/src/components/Appointment/Show.js";
+import "./styles.scss";
+import Header from "./Header.js";
+import Empty from "./Empty.js";
+import Show from "./Show.js";
 
 
 function Appointment(props) {
-
 
 
   return (
@@ -14,10 +13,9 @@ function Appointment(props) {
     <Header 
       time={props.time}
     />
-    <Empty />
-    <Show />
+  {props.interview && <Show student={props.interview.student} interview={props.interview.interview} />}
+  {!props.interview && <Empty />}
     </article>
-
   )
 }
 
