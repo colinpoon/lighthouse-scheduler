@@ -3,20 +3,19 @@ import "components/InterviewerList.scss";
 import InterviewerListItem from './InterviewerListItem';
 
 function InterviewerList(props) {
+  // console.log("PROPS", props);
   const interviewers = props.interviewers;
   const interviewerList = interviewers.map((interviewer) => {
     return (
-  <InterviewerListItem 
-    key={interviewer.id}
-    name={interviewer.name}
-    avatar={interviewer.avatar}
-    setInterviewer={interviewer.setInterviewer}
-    selected={interviewer.name === props.interviewer}
-  />
+      <InterviewerListItem
+        key={interviewer.id}
+        name={interviewer.name}
+        avatar={interviewer.avatar}
+        selected={interviewer.id === value}
+        setInterviewer={() => props.onChange(interviewer.id)}
+      />
     );
   })
-
-  
 
   return (
     <section className="interviewers">
@@ -29,26 +28,3 @@ function InterviewerList(props) {
 }
 
 export default InterviewerList
-// ul className="interviewers__list"></ul
-
-// function DayList(props) {
-//   const days = props.days;
-//   const dayItems = days.map((item) => {
-//     return (
-//     <DayListItem
-//         key={item.id}
-//         name={item.name}
-//         spots={item.spots}
-//         selected={item.name === props.day}
-//         setDay={props.setDay}
-//       />
-//     )
-//   });
-//   return (
-//     <ul>
-//     {dayItems}
-//     </ul>
-//   )
-// }
-
-// export default DayList

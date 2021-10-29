@@ -27,13 +27,13 @@ function DayListItem(props) {
   return (
     <li
       className={dayClass}
-      onClick= {() => props.setDay(props.name)}
+      onClick= {() => props.onChange(props.name)}
       selected={props.selected}
       full={props.spots}
     >
       <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">
-        {/* {formatSpots(props.spots)} */}
+        {/* {formatSpots(props.spots)} <---- function */}
         {props.spots === 0 ? "no spots remaining" : props.spots === 1 ? "1 spot remaining" : `${props.spots} spots remaining`}
       </h3>
     </li>
