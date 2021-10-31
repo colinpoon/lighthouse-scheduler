@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "components/Application.scss";
@@ -45,33 +44,36 @@ const appointments = [
   }
 ];
 
-
-// const days = [
-//   {
-//     id: 1,
-//     name: "Monday",
-//     spots: 2,
-//   },
-//   {
-//     id: 2,
-//     name: "Tuesday",
-//     spots: 5,
-//   },
-//   {
-//     id: 3,
-//     name: "Wednesday",
-//     spots: 0,
-//   },
-// ];
-
 function Application(props) {
-  const [day, setDay] = useState('Monday');
-  const [days, setDays] = useState([]);
+  // const [day, setDay] = useState('Monday');
+  // const [days, setDays] = useState([]);
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    // appointments: {} // you may put the line below, but will have to remove/comment hardcoded appointments variable
+  });
   useEffect(() => {
-    axios.get('/api/days').then(res =>{
-      setDays([... res.data]);
+    axios.get('/api/days').then(response => {
+      setState(prev => ({...prev, days: response.data})); 
+    })
+    .then(() => {
+      // setState(prev => ({ ...prev, days }));
     });
-}, [])
+
+    // Promise.all([
+    //   axios.get('/api/days'),
+    //   axios.get('/api/appointments'),
+    //   axios.get('/api/interviewers')
+    // ]).then((all) => {
+    //   // console.log("days: ", all[0].data)
+    //   // console.log("appointments: ", all[1].data) 
+    //   // console.log("interviewers: ", all[2].data) 
+
+    //   setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
+    // })
+  }, []);
+
+
 
   const appointmentList = appointments.map((appointment) => {
     return (
@@ -98,9 +100,10 @@ function Application(props) {
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
           <DayList
-            days={days}
-            value={day}
-            onChange={setDay}
+            days={state.days}
+            // value={state.day}
+            day={state.day}
+            setDay={state.setDay}
           />
         </nav>
         <img
