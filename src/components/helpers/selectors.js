@@ -1,3 +1,4 @@
+//APPOINTMENTS
 const getAppointmentsForDay = (state, dayName) => {
   const foundDay = state.days.find((day) => day.name === dayName);
   //if no day found, return empty array
@@ -11,4 +12,20 @@ const getAppointmentsForDay = (state, dayName) => {
   return result;
 }
 
-export {getAppointmentsForDay};
+
+// INTERVIEW
+const getInterview = (state, interview) => {
+  if (!interview) {
+    return null;
+  }
+  const interviewerId = interview.interviewer;
+
+  return {
+    ...interview,
+    interviewer: state.interviewers[interviewerId],
+  };
+}
+
+
+
+export {getAppointmentsForDay, getInterview};

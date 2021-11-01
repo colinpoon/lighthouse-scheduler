@@ -4,16 +4,17 @@ import axios from 'axios';
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
-// import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay } from "components/helpers/selectors";
 
 function Application(props) {
   const setDay = day => setState({ ...state, day });
-  //const setDays = days =>  setState({...state, days});
+
 
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
+    appointments: {},
+    interviewers: {}
   });
 
   useEffect(() => {
@@ -25,24 +26,42 @@ function Application(props) {
       console.log("DAYS", all[0]);
       console.log("APPOINTMENTS", all[1]);
       console.log("INTERVIEWERS", all[2]);
-      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
+      setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     });
   }, []);
 
-  const dailyAppointments = [];
-  // const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
   const appointmentList = dailyAppointments.map(appointment => {
+    const interview = getInterview(state, appointment.interview);
     return (
       <Appointment
         key={appointment.id}
+        // {...appointment}
         id={appointment.id}
         time={appointment.time}
+        interview={interview}
       />
     )
   });
-////////////////////////////
-// RENDER 
-////////////////////////////
+  // const appointments = getAppointmentsForDay(state, day);
+
+  // const schedule = appointments.map((appointment) => {
+  //   const interview = getInterview(state, appointment.interview);
+
+  //   return (
+  //     <Appointment
+  //       key={appointment.id}
+  //       // {...appointment}
+  //       id={appointment.id}
+  //       time={appointment.time}
+  //       interview={interview}
+  //     />
+  //   );
+  // });
+
+  ////////////////////////////
+  // RENDER 
+  ////////////////////////////
   return (
     <main className="layout">
       <section className="sidebar">
@@ -55,10 +74,8 @@ function Application(props) {
         <nav className="sidebar__menu">
           <DayList
             days={state.days}
-            // value={state.day}
-            day={state.day}
+            value={state.day}
             onChange={setDay}
-          // setDay={state.setDay}
           />
         </nav>
         <img
