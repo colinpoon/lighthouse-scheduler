@@ -22,7 +22,7 @@ const getInterview = (state, interview) => {
 
   return {
     ...interview,
-    interviewer: state.interviewers[interviewerId],
+    interviewer: state.interviewers[interviewerId]
   };
 }
 
