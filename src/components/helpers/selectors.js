@@ -26,6 +26,4 @@ const getInterview = (state, interview) => {
   };
 }
 
-
-
 export {getAppointmentsForDay, getInterview};
