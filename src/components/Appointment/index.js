@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import "./styles.scss";
 import Header from "./Header.js";
 import Empty from "./Empty.js";
 import Show from "./Show.js";
+import useVisualMode from "hooks/useVisualMode";
 
 
 function Appointment(props) {
-
+const { mode } = useVisualMode("Show");
 
   return (
     <article className="appointment">
