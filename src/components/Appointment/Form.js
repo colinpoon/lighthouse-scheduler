@@ -26,13 +26,13 @@ function Form(props) {
             type="text"
             placeholder="Enter Student Name"
             value={student}
-            onChange={(event) => setStudent(event.trigger.value)}
+            onChange={(event) => setStudent(event.target.value)}
           />
         </form>
         <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
-          onChange={(event) => setInterviewer(event.trigger.value)}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">

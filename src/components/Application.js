@@ -4,12 +4,11 @@ import axios from 'axios';
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
 
 function Application(props) {
   const setDay = day => setState({ ...state, day });
-
 
   const [state, setState] = useState({
     day: "Monday",
@@ -31,7 +30,13 @@ function Application(props) {
     });
   }, []);
 
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
+
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyInterviewers = getInterviewersForDay(state, state.day);
+  
   const appointmentList = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
     return (
@@ -41,24 +46,11 @@ function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={dailyInterviewers}
+        bookInterview={bookInterview}
       />
     )
   });
-  // const appointments = getAppointmentsForDay(state, day);
-
-  // const schedule = appointments.map((appointment) => {
-  //   const interview = getInterview(state, appointment.interview);
-
-  //   return (
-  //     <Appointment
-  //       key={appointment.id}
-  //       // {...appointment}
-  //       id={appointment.id}
-  //       time={appointment.time}
-  //       interview={interview}
-  //     />
-  //   );
-  // });
 
   ////////////////////////////
   // RENDER 
@@ -87,7 +79,6 @@ function Application(props) {
       </section>
       <section className="schedule">
         {appointmentList}
-        {/* <Appointment key={last} time={5} /> */}
       </section>
     </main>
   );
