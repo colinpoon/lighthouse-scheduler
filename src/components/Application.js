@@ -16,7 +16,7 @@ function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
   const appointmentList = dailyAppointments.map(appointment => {
-    const interview = getInterview(state, appointment.interview);
+    // const interview = getInterview(state, appointment.interview);
 
     return (
       <Appointment
@@ -24,7 +24,8 @@ function Application(props) {
         // {...appointment}
         id={appointment.id}
         time={appointment.time}
-        interview={interview}
+        interview={getInterview(state, appointment.interview)}
+        //interview={interview}
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}

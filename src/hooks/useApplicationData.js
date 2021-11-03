@@ -3,13 +3,15 @@ import axios from "axios";
 
 
 export default function useApplicationData() {
+  //state KEY
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
   });
-
+  
+  //setday KEY
   const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
@@ -25,6 +27,7 @@ export default function useApplicationData() {
     });
   }, []);
 
+  //bookInterview KEY
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -39,7 +42,7 @@ export default function useApplicationData() {
         setState({ ...state, appointments });
       })
   }
-
+  //cancelInterview KEY
   function cancelInterview(id, interview){
     const appointment = {
       ...state.appointments[id],
@@ -55,9 +58,9 @@ export default function useApplicationData() {
       })
   }
 
+  const spotCounter = function() {
 
-
-
+  }
 
   return { state, setDay, bookInterview, cancelInterview };
 }
