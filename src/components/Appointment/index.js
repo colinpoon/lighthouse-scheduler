@@ -26,8 +26,6 @@ function Appointment(props) {
   );
     //CHECK to see how to add an edge case for ---> if no interviewer is selected
   function save(name, interviewer) {
-    // console.log(interviewer);
-    // console.log(name);
     const interview = {
       student: name,
       interviewer
@@ -73,7 +71,6 @@ function Appointment(props) {
         interviewer={props.interview.interviewer.id}
         student={props.student}
         onCancel={back}
-        // onCancel={() => transition(SHOW)}
         onSave={save}
       />}
 
