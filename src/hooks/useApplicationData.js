@@ -39,7 +39,8 @@ export default function useApplicationData() {
     };
     return axios.put(`/api/appointments/${id}`, { interview })
       .then(() => {
-        setState({ ...state, appointments });
+        const days = spotCounter(state, appointments)
+        setState({ ...state, days, appointments });
       })
   }
   //cancelInterview KEY
@@ -54,13 +55,31 @@ export default function useApplicationData() {
     };
     return axios.delete(`/api/appointments/${id}`, { interview })
       .then(() => {
-        setState({ ...state, appointments });
+        const days = spotCounter(state, appointments)
+        setState({ ...state, days, appointments });
       })
   }
 
-  const spotCounter = function() {
+  const spotCounter = function (state, appointments) {
 
-  }
+    const prevDays = [...state.days];
+    //find the current day
+    const day = prevDays.find(day => day.name === state.day);
+
+    let spots = 0;
+
+    for (const id of day.appointments) {
+      const appointment = appointments[id];
+      if (!appointment.interview) {
+        spots++;
+      }
+    }
+    const newDay = {...day, spots};
+    const updatedDays = prevDays.map(day => day.name === state.day ? newDay : day)
+
+    return updatedDays;
+  };
+
 
   return { state, setDay, bookInterview, cancelInterview };
 }

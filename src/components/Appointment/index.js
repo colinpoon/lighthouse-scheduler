@@ -24,7 +24,7 @@ function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
+    //CHECK to see how to add an edge case for ---> if no interviewer is selected
   function save(name, interviewer) {
     // console.log(interviewer);
     // console.log(name);
