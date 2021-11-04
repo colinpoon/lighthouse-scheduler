@@ -37,9 +37,6 @@ describe("Form", () => {
     }
 
     const { getByText } = render(<Form {...formProps}/>)
-    // const { getByText } = render(
-    //   <Form interviewers={interviewers} onSave={onSave} />
-    // )
 
     fireEvent.click(getByText("Save"))
 

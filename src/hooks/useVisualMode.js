@@ -17,7 +17,6 @@ export default function useVisualMode(initial) {
     if (updatedHistory.length > 1) {
       updatedHistory.pop()
       setHistory(updatedHistory);
-      // console.log(updatedHistory);
       return setMode(updatedHistory[updatedHistory.length - 1])
     }
   }

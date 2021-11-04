@@ -1,6 +1,5 @@
 import React from "react";
-// import React, { useState, useEffect } from "react";
-// import axios from 'axios';
+
 
 import "components/Application.scss";
 import DayList from "./DayList";
@@ -17,16 +16,14 @@ function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
   const appointmentList = dailyAppointments.map(appointment => {
-    // const interview = getInterview(state, appointment.interview);
+
 
     return (
       <Appointment
         key={appointment.id}
-        // {...appointment}
         id={appointment.id}
         time={appointment.time}
         interview={getInterview(state, appointment.interview)}
-        //interview={interview}
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}

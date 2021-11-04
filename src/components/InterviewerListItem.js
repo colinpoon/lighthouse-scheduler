@@ -2,12 +2,6 @@ import React from 'react'
 import "components/InterviewerListItem.scss";
 import classNames from "classnames";
 
-// const interviewer = {
-//   id: 1,
-//   name: "Sylvia Palmer",
-//   avatar: "https://i.imgur.com/LpaY82x.png"
-// };
-
 
 function InterviewerListItem(props) {
   const interviewerClass = classNames ('interviewers__item', {
@@ -30,4 +24,3 @@ function InterviewerListItem(props) {
 };
 
 export default InterviewerListItem
-// onClick={() => props.setInterviewer(props.id)}
