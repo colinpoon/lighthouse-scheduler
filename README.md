@@ -29,3 +29,6 @@ npm run storybook
 axios
 @testing-library/react-hooks
 react-test-renderer
+storybook
+jest
+babel loader
