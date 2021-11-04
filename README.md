@@ -2,7 +2,9 @@
 
 ## Final Product
 
-!["Landing"](https://github.com/colinpoon/tweeter/blob/master/public/images/README-IMGS/Screen%20Shot%202021-10-08%20at%204.01.40%20PM.png?raw=true)  
+!["Landing"](https://github.com/colinpoon/lighthouse-scheduler/blob/master/docs/Screen%20Shot%202021-11-03%20at%206.27.14%20PM.png?raw=true)
+!["Book & Edit Appointments"](https://github.com/colinpoon/lighthouse-scheduler/blob/master/docs/Screen%20Shot%202021-11-03%20at%206.28.12%20PM.png?raw=true)
+!["Cancel"](https://github.com/colinpoon/lighthouse-scheduler/blob/master/docs/Screen%20Shot%202021-11-03%20at%206.28.27%20PM.png?raw=true)
 
 ## Getting Started
 
